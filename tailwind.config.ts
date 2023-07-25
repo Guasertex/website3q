@@ -3,7 +3,7 @@ const colors = require("tailwindcss/colors");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './assets/**/*.{vue,js,css}',
+    "./assets/**/*.{vue,js,css}",
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
     "./pages/**/*.vue",
@@ -14,20 +14,20 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-		extend: {
-			colors: {
-				primary: {
-					DEFAULT: colors.violet[700],
-					...colors.violet,
-				},
-			},
-			fontFamily: {
-				sans: ["Inter"],
-			},
-		},
-	},
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: colors.violet[700],
+          ...colors.violet,
+        },
+      },
+      fontFamily: {
+        sans: ["Inter"],
+      },
+    },
+  },
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography'),],
-}
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
+};

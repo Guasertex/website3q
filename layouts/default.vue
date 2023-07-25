@@ -3,7 +3,7 @@
     <q-header elevated class="header q-header bg-header text-slate-600">
       <q-toolbar class="flex">
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
-        <q-toolbar-title class="">
+        <q-toolbar-title class="text-h4">
           <NuxtLink to="/" class="heading no-underline">Cute Blog</NuxtLink>
         </q-toolbar-title>
         <MenuButtons />
@@ -19,7 +19,7 @@
       side="left"
       bordered
     >
-      <Menu />
+      <LazyMenu />
     </q-drawer>
 
     <q-page-container>
@@ -28,10 +28,10 @@
     <q-footer elevated class="footer text-slate-600">
       <q-toolbar>
         <q-toolbar-title class="flex justify-between pt-3">
-          <NuxtLink to="/feedback" class="fb-btn pr-6">
+          <LazyNuxtLink to="/feedback" class="fb-btn pr-6">
             <q-icon name="feedback" />
-          </NuxtLink>
-          <p class="">
+          </LazyNuxtLink>
+          <p>            
             <q-icon name="copyright" class="black" />
             Copyright by
             <strong>Cute Blog</strong>
@@ -50,6 +50,9 @@ function toggleLeftDrawer() {
 </script>
 
 <style lang="scss" scoped>
+.heading {
+  color: black;
+}
 .header,
 .footer {
   background-color: white;

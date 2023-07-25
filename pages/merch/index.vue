@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Nav />
     <main>
       <section class="lg:px-[15%] px-[5%] pt-20">
         <h1
@@ -15,12 +14,13 @@
         </h1>
 
         <div class="lg:mt-20 mt-10">
-          <h1 class="lg:text-lg font-medium mb-5">
+          <h1 class="text-lg md:text-sm font-medium mb-5">
             Filter Category
             <button
+              rounded
               v-if="activeCategory"
               @click="setCategory(null)"
-              class="px-3 rounded-sm text-[13px] capitalize bg-gray-200 ml-5"
+              class="px-3 text-[13px] capitalize bg-gray-200 ml-5"
             >
               Clear &times;
             </button>
@@ -131,10 +131,24 @@ useHead({
   title: "Content Merch",
 });
 
-const config = useRuntimeConfig()
+const config = useRuntimeConfig();
 
 // instead of process.env you will now access config.public.apiBase
-console.log(config.public.apiBase)
+console.log(config.public.apiBase);
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.body--dark {
+  // div, p {
+  //   color: whitesmoke;
+  // }
+  .bg-primary-100{
+    color: white;
+    background: #1f2937;
+  }
+  .bg-gray-200 {
+    color: white;
+    background: #1f2937;
+  }
+}
+</style>

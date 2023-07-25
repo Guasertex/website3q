@@ -12,7 +12,7 @@ export default {
 </script>
 <template>
   <q-page
-    class="row justify-center items-center fxed animatedGradient"
+    class="row justify-center items-center animatedGradient"
     
   >
     <div class="column q-pa-lg">

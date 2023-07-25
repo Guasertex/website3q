@@ -22,7 +22,7 @@
 						</h1>
 						<div class="flex items-center space-x-1">
 							<template v-for="(r, i) in 5" :key="`productRating-${i}`">
-								<Icon
+								<q-icon
 									icon="ri:star-fill"
 									:class="{
 										'text-primary-500': i < parseInt(product.rating.rate),

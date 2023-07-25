@@ -4,7 +4,7 @@
 			Up To 50% OFF
 		</h1>
 		<div class="text-center">
-			<button class="p-0.5 rounded bg-white inline-block" type="button">
+			<button class="p-0.5 rounded bg-white inline-block hover:bg-black" type="button">
 				<span
 					class="block rounded px-5 py-3 w-full h-full bg-slate-900 text-white hover:bg-white hover:text-slate-900 transition-all"
 					>Get Discount</span
@@ -18,4 +18,11 @@
 	export default {};
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.body--dark{
+	button {
+		background-color: transparent;
+		color: white;
+	}
+}
+</style>
