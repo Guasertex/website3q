@@ -1,8 +1,8 @@
 <template>
-  <q-scroll-area class="fit">
-    <q-list class="dark:bg-black">
+  <q-scroll-area absolute class="fit">
+    <q-list>
       <template class="q-pa-sm" v-for="(menuItem, index) in menuList" :key="index">
-        <q-item clickable exact :to="menuItem.link" v-ripple>
+        <q-item clickable :active="menuItem.label === 'Outbox'" v-ripple>
           <q-item-section avatar>
             <q-icon :name="menuItem.icon" />
           </q-item-section>
@@ -15,7 +15,7 @@
     </q-list>
   </q-scroll-area>
 </template>
-<script lang="ts" setup>
+<script lang="ts">
 
 interface Item {
   icon: string;
@@ -55,11 +55,12 @@ const menuList: Item[] = [
     separator: true,
     link: "/merch",
   },
-  {
-    icon: "person",
-    label: "Account",
-    separator: false,
-    link: "/account",
-  },
 ];
+export default {
+  setup () {
+    return {
+      menuList
+    }
+  }
+}
 </script>
