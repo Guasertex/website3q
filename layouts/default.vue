@@ -2,7 +2,7 @@
   <q-layout view="hHh lpR fFf">
     <q-header elevated class="header q-header bg-header text-slate-600">
       <q-toolbar class="flex">
-        <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
+        <q-btn dense flat round icon="menu" @click="drawer = !drawer"/>
         <q-toolbar-title class="text-h4">
           <NuxtLink to="/" class="heading no-underline">Cute Blog</NuxtLink>
         </q-toolbar-title>
@@ -15,7 +15,7 @@
       :width="200"
       :breakpoint="700"
       :show-if-above="false"
-      v-model="leftDrawerOpen"
+      v-model="drawer"
       side="left"
       bordered
     >
@@ -41,11 +41,13 @@
     </q-footer>
   </q-layout>
 </template>
-<script setup>
-const leftDrawerOpen = ref(false);
-
-function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
+<script>
+export default {
+  setup () {
+    return {
+      drawer: ref(false),
+    }
+  }
 }
 </script>
 

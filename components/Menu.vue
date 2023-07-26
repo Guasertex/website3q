@@ -16,7 +16,6 @@
   </q-scroll-area>
 </template>
 <script lang="ts" setup>
-
 interface Item {
   icon: string;
   label: string;
