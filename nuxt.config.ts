@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
-  modules: ["nuxt-quasar-ui", "@vueuse/nuxt", "@unocss/nuxt", "@nuxt/content"],
+  modules: ["nuxt-quasar-ui", "@vueuse/nuxt", "@unocss/nuxt", "@nuxt/content", "@nuxtjs/supabase"],
   css: [
     "~/assets/css/tailwind.css",
     "quasar/fonts",
