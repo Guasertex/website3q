@@ -5,7 +5,14 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
-  modules: ["nuxt-quasar-ui", "@vueuse/nuxt", "@unocss/nuxt", "@nuxt/content", "@nuxtjs/supabase"],
+  modules: [
+    "nuxt-quasar-ui",
+    "@vueuse/nuxt",
+    "@unocss/nuxt",
+    "@nuxt/content",
+    "@nuxtjs/supabase",
+    "nuxt-security",
+  ],
   css: [
     "~/assets/css/tailwind.css",
     "quasar/fonts",
@@ -96,5 +103,64 @@ export default defineNuxtConfig({
     public: {
       apiBase: "/api",
     },
+  },
+  security: {
+    headers: {
+      crossOriginResourcePolicy: "same-origin",
+      crossOriginOpenerPolicy: "same-origin",
+      crossOriginEmbedderPolicy: "require-corp",
+      contentSecurityPolicy: {
+        "base-uri": ["'self'"],
+        "font-src": ["'self'", "https:", "data:"],
+        "form-action": ["'self'"],
+        "frame-ancestors": ["'self'"],
+        "img-src": ["'self'", "data:"],
+        "object-src": ["'none'"],
+        "script-src-attr": ["'none'"],
+        "style-src": ["'self'", "https:", "'unsafe-inline'"],
+        "upgrade-insecure-requests": true,
+      },
+      originAgentCluster: "?1",
+      referrerPolicy: "no-referrer",
+      strictTransportSecurity: {
+        maxAge: 15552000,
+        includeSubdomains: true,
+      },
+      xContentTypeOptions: "nosniff",
+      xDNSPrefetchControl: "off",
+      xDownloadOptions: "noopen",
+      xFrameOptions: "SAMEORIGIN",
+      xPermittedCrossDomainPolicies: "none",
+      xXSSProtection: "0",
+      permissionsPolicy: {
+        camera: ["()"],
+        "display-capture": ["()"],
+        fullscreen: ["()"],
+        geolocation: ["()"],
+        microphone: ["()"],
+      },
+    },
+    requestSizeLimiter: {
+      maxRequestSizeInBytes: 2000000,
+      maxUploadFileRequestInBytes: 8000000,
+    },
+    rateLimiter: {
+      tokensPerInterval: 100,
+      interval: "hour",
+      fireImmediately: true,
+    },
+    xssValidator: {},
+    corsHandler: {
+      origin: "*",
+      methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+      preflight: {
+        statusCode: 204,
+      },
+    },
+    allowedMethodsRestricter: "*",
+    hidePoweredBy: true,
+    basicAuth: false,
+    enabled: true,
+    csrf: false,
   },
 });
