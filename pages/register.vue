@@ -4,23 +4,33 @@ const user = useSupabaseUser();
 const email = ref("");
 const password = ref("");
 const isSignUp = ref(false);
+const errorMsg = ref(null);
+const successMsg = ref(null);
 
 const signUp = async () => {
-  const { user, error } = await client.auth.signUp({
-    email: email.value,
-    password: password.value,
-  });
-  console.log("user", user);
-  console.log("error", error);
+  try {
+    const { user, error } = await client.auth.signUp({
+      email: email.value,
+      password: password.value,
+    });
+    if (error) throw error;
+    successMsg.value = "Check your email to confrim your account.";
+  } catch (error) {
+    errorMsg.value = error.message;
+  }
 };
 
 const logIn = async () => {
-  const { user, error } = await client.auth.signUp({
-    email: email.value,
-    password: password.value,
-  });
-  console.log("user", user);
-  console.log("error", error);
+  try {
+    const { user, error } = await client.auth.signUp({
+      email: email.value,
+      password: password.value,
+    });
+    if (error) throw error;
+    successMsg.value = "Check your email to confrim your account.";
+  } catch (error) {
+    errorMsg.value = error.message;
+  }
 };
 onMounted(() => {
   watchEffect(() => {
@@ -54,16 +64,21 @@ onMounted(() => {
             v-model="password"
             class="text-xl"
           />
-          <q-btn type="submit" outlined rounded-md class="text-xl bg-green-400 flex align-middle">
-            <p v-if="isSignUp">Sign Up</p>
-            <p v-else>Log In</p>
+          <q-btn
+            type="submit"
+            outlined
+            rounded-md
+            class="text-xl bg-green-400 flex align-middle"
+          >
+            <span v-if="isSignUp">Sign Up</span>
+            <span v-else>Log In</span>
           </q-btn>
           <q-btn
             @click="isSignUp = !signUp"
             class="w-full mt-8 text-sm text-center underline text-slate-300"
           >
-            <p v-if="isSignUp">Have an account? Log in instead</p>
-            <p v-else>Create a new account</p>
+            <span v-if="isSignUp">Have an account? Log in instead</span>
+            <span v-else>Create a new account</span>
           </q-btn>
         </q-form>
       </div>
