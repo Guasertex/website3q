@@ -1,8 +1,9 @@
-export default defineNuxtRouteMiddleware((to)=>{
+export default defineNuxtRouteMiddleware((to) => {
     const user = useSupabaseUser()
+  
     if (!user.value && to.path === '/notes') {
-        navigateTo('/')
-    } else if (user.value && to.path === '/') {
-        navigateTo('notes')
-    } 
-})
+      return navigateTo('/login')
+    } else if (user.value && to.path === '/login') {
+      return navigateTo('notes')
+    }
+  })

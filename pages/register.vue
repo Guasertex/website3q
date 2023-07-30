@@ -1,89 +1,12 @@
 <script setup>
-const client = useSupabaseClient();
-const user = useSupabaseUser();
-const email = ref("");
-const password = ref("");
-const isSignUp = ref(false);
-const errorMsg = ref(null);
-const successMsg = ref(null);
-
-const signUp = async () => {
-  try {
-    const { user, error } = await client.auth.signUp({
-      email: email.value,
-      password: password.value,
-    });
-    if (error) throw error;
-    successMsg.value = "Check your email to confrim your account.";
-  } catch (error) {
-    errorMsg.value = error.message;
-  }
-};
-
-const logIn = async () => {
-  try {
-    const { user, error } = await client.auth.signUp({
-      email: email.value,
-      password: password.value,
-    });
-    if (error) throw error;
-    successMsg.value = "Check your email to confrim your account.";
-  } catch (error) {
-    errorMsg.value = error.message;
-  }
-};
-onMounted(() => {
-  watchEffect(() => {
-    if (user.value) {
-      navigateTo("/blog");
-    }
-  });
-});
+const user = useSupabaseUser()
 </script>
+
 <template>
-  <q-page class="row justify-center items-center">
-    <div class="column q-pa-lg">
-      <div class="row">
-        <q-form
-          @submit.prevent="() => (isSignUp ? signUp() : logIn())"
-          class="flex flex-col gap-2"
-        >
-          <q-input
-            type="email"
-            placeholder="Email"
-            outlined
-            rounded-md
-            v-model="email"
-            class="text-xl"
-          />
-          <q-input
-            type="password"
-            placeholder="Password"
-            outlined
-            rounded-md
-            v-model="password"
-            class="text-xl"
-          />
-          <q-btn
-            type="submit"
-            outlined
-            rounded-md
-            class="text-xl bg-green-400 flex align-middle"
-          >
-            <span v-if="isSignUp">Sign Up</span>
-            <span v-else>Log In</span>
-          </q-btn>
-          <q-btn
-            @click="isSignUp = !signUp"
-            class="w-full mt-8 text-sm text-center underline text-slate-300"
-          >
-            <span v-if="isSignUp">Have an account? Log in instead</span>
-            <span v-else>Create a new account</span>
-          </q-btn>
-        </q-form>
-      </div>
-    </div>
-  </q-page>
+  <div class="container" style="padding: 50px 0 100px 0">
+    <Account v-if="user" />
+    <Auth v-else />
+  </div>
 </template>
 <style lang="scss" scoped>
 .animatedGradient {

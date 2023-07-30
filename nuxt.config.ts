@@ -5,12 +5,18 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
+  runtimeConfig: {
+    public: {
+      siteUrl: process.env.PUBLIC_URL,
+    },
+  },
   modules: [
     "nuxt-quasar-ui",
     "@vueuse/nuxt",
     "@unocss/nuxt",
     "@nuxt/content",
     "@nuxtjs/supabase",
+    "@sidebase/nuxt-auth",
     "nuxt-security",
   ],
   css: [
@@ -96,14 +102,6 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
-  runtimeConfig: {
-    // Private config that is only available on the server
-    apiSecret: "123",
-    // Config within public will be also exposed to the client
-    public: {
-      apiBase: "/api",
-    },
-  },
   security: {
     headers: {
       crossOriginResourcePolicy: "same-origin",
@@ -162,5 +160,8 @@ export default defineNuxtConfig({
     basicAuth: false,
     enabled: true,
     csrf: false,
+  },
+  experimental: {
+    componentIslands: true,
   },
 });
