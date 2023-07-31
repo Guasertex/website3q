@@ -1,7 +1,4 @@
 <script setup>
-definePageMeta({
-  middleware: ["auth"],
-});
 const email = ref("");
 const password = ref("");
 const isSignUp = ref(false);
@@ -41,13 +38,6 @@ onMounted(() => {
       Welcome to the LearnVue Nuxt demo. Any YouTube tutorials relating to Nuxt
       will be made to this project.
     </p>
-    <NuxtLink
-      to="https://www.youtube.com/playlist?list=PLHIhzV3yZ5WbvbJhEbZysgmpbsLYR0Q34"
-      target="_blank"
-      class="inline-block px-4 py-2 mt-4 font-medium rounded bg-green hover:bg-green-400"
-    >
-      Nuxt Video Playlist
-    </NuxtLink>
     <form
       @submit.prevent="() => (isSignUp ? signUp() : login())"
       class="flex flex-col gap-2 mt-16"

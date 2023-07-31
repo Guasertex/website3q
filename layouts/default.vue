@@ -1,11 +1,29 @@
+<script>
+export default {
+  setup() {
+    return {
+      drawer: ref(false),
+    };
+  },
+};
+</script>
 <template>
   <q-layout view="hHh lpR fFf">
     <q-header elevated class="header q-header bg-header text-slate-600">
       <q-toolbar class="flex">
-        <q-btn dense flat round icon="menu" @click="drawer = !drawer"/>
+        <q-btn dense flat round icon="menu" @click="drawer = !drawer" />
         <q-toolbar-title class="text-h4">
           <NuxtLink to="/" class="heading no-underline">Cute Blog</NuxtLink>
         </q-toolbar-title>
+        <q-btn
+          dense
+          flat
+          v-if="authenticated"
+          class="loginBtn"
+          style="float: right"
+        >
+          <nuxt-link @click="logout">Logout</nuxt-link>
+        </q-btn>
         <MenuButtons />
         <ThemeSwitcher />
       </q-toolbar>
@@ -31,7 +49,7 @@
           <LazyNuxtLink to="/feedback" class="fb-btn pr-6">
             <q-icon name="feedback" />
           </LazyNuxtLink>
-          <p>            
+          <p>
             <q-icon name="copyright" class="black" />
             Copyright by
             <strong>Cute Blog</strong>
@@ -41,15 +59,6 @@
     </q-footer>
   </q-layout>
 </template>
-<script>
-export default {
-  setup () {
-    return {
-      drawer: ref(false),
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .heading {
@@ -74,5 +83,8 @@ export default {
   .fb-btn {
     color: whitesmoke;
   }
+}
+.loginBtn {
+  background-color: #04aa6d;
 }
 </style>

@@ -5,18 +5,13 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
-  runtimeConfig: {
-    public: {
-      siteUrl: process.env.PUBLIC_URL,
-    },
-  },
   modules: [
     "nuxt-quasar-ui",
     "@vueuse/nuxt",
     "@unocss/nuxt",
     "@nuxt/content",
     "@nuxtjs/supabase",
-    "@sidebase/nuxt-auth",
+    "@pinia/nuxt",
     "nuxt-security",
   ],
   css: [

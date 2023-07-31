@@ -54,11 +54,5 @@ const menuList: Item[] = [
     separator: true,
     link: "/merch",
   },
-  {
-    icon: "person",
-    label: "Account",
-    separator: false,
-    link: "/account",
-  },
 ];
 </script>
