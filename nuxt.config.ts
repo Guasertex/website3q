@@ -124,7 +124,7 @@ export default defineNuxtConfig({
       xDownloadOptions: "noopen",
       xFrameOptions: "SAMEORIGIN",
       xPermittedCrossDomainPolicies: "none",
-      xXSSProtection: "0",
+      xXSSProtection: "1",
       permissionsPolicy: {
         camera: ["()"],
         "display-capture": ["()"],
@@ -134,15 +134,18 @@ export default defineNuxtConfig({
       },
     },
     requestSizeLimiter: {
-      maxRequestSizeInBytes: 2000000,
-      maxUploadFileRequestInBytes: 8000000,
+      maxRequestSizeInBytes: 200000,
+      maxUploadFileRequestInBytes: 800000,
     },
     rateLimiter: {
       tokensPerInterval: 100,
       interval: "hour",
       fireImmediately: true,
     },
-    xssValidator: {},
+    xssValidator: {
+      stripIgnoreTag: true,
+      throwError: false,
+    },
     corsHandler: {
       origin: "*",
       methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
@@ -154,7 +157,7 @@ export default defineNuxtConfig({
     hidePoweredBy: true,
     basicAuth: false,
     enabled: true,
-    csrf: false,
+    csrf: true,
   },
   experimental: {
     componentIslands: true,

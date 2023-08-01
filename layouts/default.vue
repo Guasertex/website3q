@@ -15,15 +15,7 @@ export default {
         <q-toolbar-title class="text-h4">
           <NuxtLink to="/" class="heading no-underline">Cute Blog</NuxtLink>
         </q-toolbar-title>
-        <q-btn
-          dense
-          flat
-          v-if="authenticated"
-          class="loginBtn"
-          style="float: right"
-        >
-          <nuxt-link @click="logout">Logout</nuxt-link>
-        </q-btn>
+        <SignOut />
         <MenuButtons />
         <ThemeSwitcher />
       </q-toolbar>

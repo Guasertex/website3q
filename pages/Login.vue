@@ -4,12 +4,11 @@ const password = ref("");
 const isSignUp = ref(false);
 const user = useSupabaseUser();
 const client = useSupabaseClient();
-const signUp = async () => {
+const signup = async () => {
   const { user, error } = await client.auth.signUp({
     email: email.value,
     password: password.value,
   });
-  console.log("user", user);
   console.log("error", error);
 };
 
@@ -18,7 +17,6 @@ const login = async () => {
     email: email.value,
     password: password.value,
   });
-  console.log("user", user);
   console.log("error", error);
 };
 
@@ -39,7 +37,7 @@ onMounted(() => {
       will be made to this project.
     </p>
     <form
-      @submit.prevent="() => (isSignUp ? signUp() : login())"
+      @submit.prevent="() => (isSignUp ? signup() : login())"
       class="flex flex-col gap-2 mt-16"
     >
       <input

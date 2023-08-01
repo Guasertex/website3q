@@ -1,0 +1,13 @@
+{
+    "rules": {
+        "anti-trojan-source/no-bidi": "error"
+    },
+    "plugins": [
+        "security-node",
+        "anti-trojan-source"
+    ],
+    "extends": [
+        "plugin:security-node/recommended",
+        "plugin:anti-trojan-source/recommended"
+    ]
+}

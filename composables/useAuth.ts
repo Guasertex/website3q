@@ -1,7 +1,7 @@
 import { RouterView, useRouter, useRoute } from "vue-router";
 import { useUserStore } from "~/store/user";
-const supabase = useSupabaseClient();
-import Loading from "../components/Loading.vue";
+import { supabase } from "~/supabase";
+import Loading from "~/components/Loading.vue";
 import { storeToRefs } from "pinia";
 
 export function useAuth() {
