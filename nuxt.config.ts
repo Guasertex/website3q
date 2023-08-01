@@ -7,16 +7,11 @@ export default defineNuxtConfig({
     strict: true,
   },
   modules: [
-    "@vueuse/core",
-    '@vueuse/nuxt',
-    '@unocss/nuxt',
     "@nuxt/devtools",
-    "@nuxt/content",
+    "@vueuse/nuxt",
     "@nuxtjs/supabase",
+    "@nuxt/content",
     "@pinia/nuxt",
-    "@tailwindcss/forms",
-    "@tailwindcss/typography",
-    "@nuxtjs/dotenv",
     "nuxt-quasar-ui",
     "nuxt-security",
   ],
@@ -30,13 +25,6 @@ export default defineNuxtConfig({
   ],
   build: {
     transpile: ["quasar"],
-  },
-  unocss: {
-    uno: true,
-    attributify: true,
-    icons: {
-      scale: 1.2,
-    },
   },
   vueuse: {
     ssrHandlers: true,
@@ -168,4 +156,4 @@ export default defineNuxtConfig({
   experimental: {
     componentIslands: true,
   },
-});
+})
