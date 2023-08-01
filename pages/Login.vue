@@ -13,9 +13,8 @@ const signup = async () => {
 };
 
 const login = async () => {
-  const { user, error } = await client.auth.signIn({
+  const { user, error } = await client.auth.signInWithOtp({
     email: email.value,
-    password: password.value,
   });
   console.log("error", error);
 };

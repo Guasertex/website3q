@@ -4,14 +4,20 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   typescript: {
     shim: false,
+    strict: true,
   },
   modules: [
-    "nuxt-quasar-ui",
-    "@vueuse/nuxt",
-    "@unocss/nuxt",
+    "@vueuse/core",
+    '@vueuse/nuxt',
+    '@unocss/nuxt',
+    "@nuxt/devtools",
     "@nuxt/content",
     "@nuxtjs/supabase",
     "@pinia/nuxt",
+    "@tailwindcss/forms",
+    "@tailwindcss/typography",
+    "@nuxtjs/dotenv",
+    "nuxt-quasar-ui",
     "nuxt-security",
   ],
   css: [
