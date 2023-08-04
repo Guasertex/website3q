@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     "@nuxtjs/supabase",
     "@nuxt/content",
     "@pinia/nuxt",
+    "@nuxtjs/tailwindcss",
     "nuxt-quasar-ui",
     "nuxt-security",
   ],
@@ -152,8 +153,5 @@ export default defineNuxtConfig({
     basicAuth: false,
     enabled: true,
     csrf: true,
-  },
-  experimental: {
-    componentIslands: true,
   },
 })

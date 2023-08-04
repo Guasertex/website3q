@@ -48,11 +48,5 @@ const menuList: Item[] = [
     separator: true,
     link: "/blog",
   },
-  {
-    icon: "shopping_cart",
-    label: "Merch",
-    separator: true,
-    link: "/merch",
-  },
 ];
 </script>

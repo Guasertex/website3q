@@ -52,7 +52,7 @@ export default {
                 placeholder="Your message"
                 rows="3"
                 filled
-              ></q-input>
+              />
             </div>
             <div class="flex justify-center">
             <div

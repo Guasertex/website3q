@@ -1,3 +1,12 @@
+<script setup>
+
+const { data: blogNav } = await useAsyncData("navigation", () => {
+  return fetchContentNavigation(queryContent("/"));
+});
+useHead({
+  title: "Content Blog",
+});
+</script>
 <template>
   <div class="min-h-screen">
     <main>
@@ -60,12 +69,3 @@
     </main>
   </div>
 </template>
-
-<script setup>
-const { data: blogNav } = await useAsyncData("navigation", () => {
-  return fetchContentNavigation(queryContent("/"));
-});
-useHead({
-  title: "Content Blog",
-});
-</script>

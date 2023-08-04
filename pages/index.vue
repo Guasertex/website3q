@@ -49,7 +49,7 @@
           >
             Read documentation
           </a>
-          <a class="card__link" href="/protected" target="_blank">
+          <a class="card__link" href="/" target="_blank">
             See example
           </a>
         </p>
@@ -115,7 +115,6 @@ body {
   background-size: 200% auto;
   color: #000;
   background-clip: text;
-  text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 1s linear infinite;

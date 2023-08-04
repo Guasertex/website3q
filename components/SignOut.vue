@@ -1,24 +1,27 @@
 <script setup>
-const supabase = useSupabaseAuthClient();
+const client = useSupabaseClient();
 
 const signout = async () => {
-  const { error } = await supabase.auth.signOut();
+  const { error } = await client.auth.signOut();
   if (error) {
     return;
   }
-  await navigateTo('/login');
+  await navigateTo("/signup");
 };
 </script>
 
 <template>
-  <div class="py-4 ">
-
-      <q-btn
-        rounded
-        class="w-auto px-4 py-2 font-semibold text-white bg-red-600 rounded hover:bg-red-700"
-        @click="signout"
-      >
-        Signout
-      </q-btn>
+  <div class="py-4">
+    <q-btn class="btnLogOut" flat @click="signout"> Signout </q-btn>
   </div>
 </template>
+<style lang="scss" scoped>
+.btnLogOut {
+  color: black;
+}
+.body--dark {
+  .btnLogOut {
+    color: white;
+  }
+}
+</style>

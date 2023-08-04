@@ -36,7 +36,7 @@ export default {
       <slot />
     </q-page-container>
     <q-footer elevated class="footer text-slate-600">
-      <q-toolbar>
+      <q-toolbar class="text-center">
         <q-toolbar-title class="flex justify-between pt-3">
           <LazyNuxtLink to="/feedback" class="fb-btn pr-6">
             <q-icon name="feedback" />
@@ -55,6 +55,7 @@ export default {
 <style lang="scss" scoped>
 .heading {
   color: black;
+  text-decoration: none;
 }
 .header,
 .footer {

@@ -13,8 +13,12 @@
 </template>
 
 <style lang="scss" scoped>
+.btn-switcher{
+  color: black;
+}
 .body--dark {
-  color: white;
-  background-color: black;
+  .btn-switcher{
+    color: white;
+  }
 }
 </style>
