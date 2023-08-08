@@ -18,7 +18,6 @@ export default <RouterConfig>{
     if (to.hash) {
       setTimeout(() => {
         const heading = document.querySelector(to.hash) as any;
-
         return window.scrollTo({
           top: heading.offsetTop,
           behavior: "smooth",

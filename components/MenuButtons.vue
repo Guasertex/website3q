@@ -3,7 +3,7 @@
     <NuxtLink to="/login">
       <q-btn class="log-btn" flat label="Log in" />
     </NuxtLink>
-    <NuxtLink to="/signup">
+    <NuxtLink to="/signin">
       <q-btn class="reg-btn" flat label="Sign in" />
     </NuxtLink>
   </div>
